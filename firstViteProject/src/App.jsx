@@ -1,13 +1,31 @@
-// import { useState } from 'react'
+ import { useState } from 'react'
 
 function App() {
 
-  console.log('hello react');
+  let [counter, setCounter] = useState(11)
+  const addValue = function () {
+
+    if (counter >= 0 && counter < 20) {
+      counter = counter + 1
+      setCounter(counter)
+      // console.log(counter);
+    }
+  }
   
+  const subValue = function () {
+    
+    if (counter >= 1 && counter <= 20) {
+      counter = counter - 1
+      setCounter(counter)
+    }
+  }
+    
   return (
     <div>
-      <h1>Hello React</h1>
-      <p>this is adarsh</p>
+      <h1>counter {counter}</h1>
+      <button onClick={addValue}> add value{counter}</button>
+      <br/>
+      <button onClick={subValue}> decrease value{counter}</button>
     </div>
   ) 
 }
