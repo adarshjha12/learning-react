@@ -22,7 +22,7 @@ function App() {
     
   return (
     <div>
-      <h1>counter {counter}</h1>
+      <h1 > counter {counter}</h1>
       <button onClick={addValue}> add value{counter}</button>
       <br/>
       <button onClick={subValue}> decrease value{counter}</button>
