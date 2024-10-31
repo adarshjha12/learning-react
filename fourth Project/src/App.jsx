@@ -1,14 +1,34 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { useState, useCallback } from 'react'
+ 
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [length, setlength] = useState(9)
+  const [password, setPassword] = useState("")
+  const [charAllowed, setCharAllowed] = useState(false)
+  const [numAllowed, setNumAllowed] = useState(false)
+
+  const passwordGenerator = useCallback(() =>{
+    let pass;
+    let string = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
+    let num = "0123456789"
+    let specialChars = "!@#$%^&*()[]{};:,.<>/?\|+=-_`~"
+  }, [length, charAllowed, numAllowed])
 
   return (
     <>
-      
+      <h1 className='text-white rounded-2xl px-5 py-2 bg-purple-600 text-3xl font-bold'> password generator</h1>
+
+      <div className='text-white h-48  px-2 py-10 border rounded-2xl'>
+        <input className='outline-none border-none py-1 my-6 rounded-l-md' type='text' readOnly></input>
+        <button className='text-white rounded-r-md py-1 px-3 bg-slate-500'>copy</button>
+        <br/>
+
+        <input className='mx-2 ' type='range' min={0}  max={100}/>
+        <span>length ( {length} )</span>
+        <input className='mx-2 w-5 h-5' type='checkbox'/><label htmlFor="">number</label>
+        <input className='mx-2 h-5 w-5' type='checkbox'/><label htmlFor="">characters</label>
+      </div>
       
     </>
   )
