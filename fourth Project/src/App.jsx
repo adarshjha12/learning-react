@@ -8,11 +8,22 @@ function App() {
   const [charAllowed, setCharAllowed] = useState(false)
   const [numAllowed, setNumAllowed] = useState(false)
 
+  
+
   const passwordGenerator = useCallback(() =>{
-    let pass;
+    let pass
     let string = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
-    let num = "0123456789"
-    let specialChars = "!@#$%^&*()[]{};:,.<>/?\|+=-_`~"
+    
+    if (numAllowed) string += '0123456789'
+    if (charAllowed) string += "!@#$%^&*()[]{};:,.<>/?\|+=-_`~"
+    
+    for (let i = 0; i <= length; i++) {
+      const randomValue = Math.floor(Math.random() * length) + 1
+      console.log(randomValue);
+
+       pass = string.charAt(randomValue)
+    }
+
   }, [length, charAllowed, numAllowed])
 
   return (

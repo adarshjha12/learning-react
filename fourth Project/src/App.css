@@ -3,8 +3,7 @@
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
-  background-color: black;
-  height: 100vh;
+  background-color: #000000;
   display: grid;
   place-items: center;
 }
