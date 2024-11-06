@@ -9,3 +9,50 @@ body{
   display: grid;
   place-items: center;
 }
+
+/* Custom slider styles */
+input[type="range"] {
+  -webkit-appearance: none; /* Removes default styling */
+  appearance: none;
+  width: 120px;
+  height: 8px;
+  background-color: #e5e7eb; /* Tailwind's 'gray-300' for track */
+  border-radius: 4px;
+  outline: none;
+  cursor: pointer;
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+  height: 8px;
+  background-color: #090909; /* Tailwind's 'indigo-600' for track */
+  border-radius: 4px;
+}
+
+input[type="range"]::-moz-range-track {
+  height: 8px;
+  background-color: #0a0a0b; /* Tailwind's 'indigo-600' for track */
+  border-radius: 4px;
+}
+
+/* WebKit browsers (Chrome, Safari) thumb styling */
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none; /* Removes default styling */
+  appearance: none;
+  height: 16px;
+  width: 16px;
+  background-color: #fbfbf7; /* Tailwind's 'indigo-500' for thumb */
+  border-radius: 50%; /* Makes it circular */
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  margin-top: -4px; /* Center the thumb on the track */
+}
+
+/* Firefox thumb styling */
+input[type="range"]::-moz-range-thumb {
+  height: 16px;
+  width: 16px;
+  background-color: #fdfcf9; /* Tailwind's 'indigo-500' for thumb */
+  border-radius: 50%;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+}

@@ -7,7 +7,7 @@ function App() {
   const [password, setPassword] = useState('')
   const [charAllowed, setCharAllowed] = useState(false)
   const [numAllowed, setNumAllowed] = useState(false)
-  const [bgColor, setBgcolor] = useState('red')
+  const [bgColor, setBgcolor] = useState('black')
   const [buttonText, setButtonText] = useState('copy')
   const refToInput = useRef(null)
 
@@ -50,25 +50,25 @@ function App() {
       <div className='w-6/12 bg-yellow-600 px-2 py-4 border rounded-md'>
         <input className='mr-1 ml-16 outline-none border-2 border-gray-700 bg-transparent text-black py-1 px-2 my-6 rounded-md ' readOnly type='text' ref={refToInput} value = {password}/>
 
-        <button onClick={() => {clickHandler(); copyPassword()}} style={{backgroundColor: bgColor}} className='text-white rounded-md py-1 px-3 hover:bg-slate-950'>{buttonText}</button>
+        <button onClick={() => {clickHandler(); copyPassword()}} style={{backgroundColor: bgColor}} className='text-white rounded-md py-1 px-3 hover:scale-105 '>{buttonText}</button>
         <br/>
 
         <input className='mx-2' value={length} type='range' min={6}  max={20} onChange={(e) =>{
           setlength(e.target.value)
-          setBgcolor('red')
+          setBgcolor('black')
           setButtonText('copy')
         }}/>
         <label>length:{length} </label>
         <input className='mx-2 w-5 h-5' checked = {numAllowed} type='checkbox' onChange={() => {
 
         setNumAllowed(prev => !prev)
-        setBgcolor('red')
+        setBgcolor('black')
         setButtonText('copy')
 
         }}/><label htmlFor="">number</label>
         <input className='mx-2 h-5 w-5' checked={charAllowed} type='checkbox' onChange={() => {
           setCharAllowed(prev => !prev)
-          setBgcolor('red')
+          setBgcolor('black')
           setButtonText('copy')
           }} /><label htmlFor="">characters</label>
       </div>
