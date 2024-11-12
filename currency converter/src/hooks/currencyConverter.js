@@ -5,7 +5,7 @@ const FetchCurrencyData = (currency) =>{
     useEffect( () => {
         fetch(`https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies/${currency}.json`)
         .then( (res) => res.json())
-        .then( () => setData(res[currency]))
+        .then( (res) => setData(res[currency]))
         .catch( (err) => console.log(err)
     )
     }, [currency])
