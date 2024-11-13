@@ -15,17 +15,19 @@ function App() {
 
   let options = Object.keys(currencyInfo)
 
+  const swap = () =>{
+    const temp = from
+    setFrom(to)
+    setTo(temp)
+    setConvertedAmount(amount)
+    setAmount(convertedAmount)
+  }
 
   const convert = () =>{
     setConvertedAmount( amount * currencyInfo[to])
   }
 
-  const swap = () =>{
-    setFrom(to)
-    setTo(from)
-    setConvertedAmount(amount)
-    setAmount(convertedAmount)
-  }
+  
 
   return (
     <>
@@ -48,7 +50,7 @@ function App() {
               >
 
               </InputComponent>
-              <button className='bg-blue-600 border-2 border-white text-white rounded-md px-4 py-1 font-extrabold text-xl' onClick={swap}>swap</button>
+              <button type='button' className='bg-blue-600 border-2 border-white text-white rounded-md px-4 py-1 font-extrabold text-xl' onClick={swap}>swap</button>
               <InputComponent
               label='to'
               amount={convertedAmount}
@@ -56,10 +58,9 @@ function App() {
               currencyOptions={options}
               selectCurrency={to}
               ></InputComponent>
-              <button className='bg-violet-600 border-2 border-white text-white rounded-md px-4 py-1 font-extrabold text-xl'>convert usd to inr</button>
+              <button type='submit' className='bg-blue-600 border-2 border-white text-white rounded-md px-4 py-1 font-extrabold text-xl'>convert {from.toUpperCase()} to {to.toUpperCase()}</button>
 
           </form>
-
         </div>
      </div>
     </>
