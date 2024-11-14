@@ -1,7 +1,7 @@
 // Navbar.js
 import React, { useState } from 'react';
-
-import ContactPage from './contact';
+import {Link, NavLink} from 'react-router-dom'
+import ContactPage from './Contact';
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(true);
 
@@ -24,19 +24,15 @@ const Navbar = () => {
         } md:flex space-x-4 mt-4 md:mt-0`}
       >
         <li>
-          <a href="#home" className="text-white hover:text-gray-300">
-            Home
-          </a>
+          <NavLink to='/'>Home</NavLink>
         </li>
         <li>
-          <a href="./about" className="text-white hover:text-gray-300">
-            About
-          </a>
+        <NavLink to='/' className={({isActive}) => `text-white ${isActive ? "text-red-400" : "text-white"}`}>about</NavLink>
+
         </li>
         <li>
-          <a href="#contact" className="text-white hover:text-gray-300">
-            Contact
-          </a>
+        <NavLink to='/'>contact us</NavLink>
+
         </li>
       </ul>
     </nav>
